@@ -366,10 +366,27 @@ engine.addEntity(galleryInfoGreen)
 galleryInfoGreen.setParent(_scene)
 const transform33 = new Transform({
   position: new Vector3(47, 0, 37.5),
-  rotation: new Quaternion(-8.69257306135296e-8, 0.8314696550369263, 3.097468947999005e-8, 0.5555702447891235),
+  rotation: new Quaternion(-8.69257306135296e-8, 0.8314696550369263, 3.097468947999005e-8, 0.5555702447891235), 
   scale: new Vector3(1.0000007152557373, 1, 1.0000007152557373)
 })
 galleryInfoGreen.addComponentOrReplace(transform33)
+
+/*******************************************************************************************************************************************/
+const logo = new Entity('logo')
+engine.addEntity(logo)
+logo.setParent(_scene)
+const transform99 = new Transform({
+  position: new Vector3(50.5, 8.5, 41.5), 
+  rotation: new Quaternion( 0, 0.9238795, 0, -0.3826834), 
+  scale: new Vector3(2, 2, 2)
+})
+logo.addComponentOrReplace(transform99)
+const sfgltf = new GLTFShape("SFLogo/logo.glb")
+sfgltf.withCollisions = true
+sfgltf.isPointerBlocker = true
+sfgltf.visible = true
+logo.addComponentOrReplace(sfgltf)
+/********************************************************************************************************************************************/
 
 const cyberpunkDoor = new Entity('cyberpunkDoor')
 engine.addEntity(cyberpunkDoor)
