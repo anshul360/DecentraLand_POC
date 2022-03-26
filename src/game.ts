@@ -376,7 +376,7 @@ const logo = new Entity('logo')
 engine.addEntity(logo)
 logo.setParent(_scene)
 const transform99 = new Transform({
-  position: new Vector3(50.5, 8.5, 41.5), 
+  position: new Vector3(49.5, 9.5, 41.9),
   rotation: new Quaternion( 0, 0.9238795, 0, -0.3826834), 
   scale: new Vector3(2, 2, 2)
 })
