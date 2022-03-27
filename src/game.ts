@@ -371,7 +371,7 @@ const transform33 = new Transform({
 })
 galleryInfoGreen.addComponentOrReplace(transform33)
 
-/*******************************************************************************************************************************************/
+/*******************************************************************LOGO************************************************************************/
 const logo = new Entity('logo')
 engine.addEntity(logo)
 logo.setParent(_scene)
@@ -387,6 +387,41 @@ sfgltf.isPointerBlocker = true
 sfgltf.visible = true
 logo.addComponentOrReplace(sfgltf)
 /********************************************************************************************************************************************/
+
+/**************************************************************** TOWER 1 ***************************************************************************
+const tow = new Entity('tow')
+engine.addEntity(tow)
+tow.setParent(_scene)
+const transform100 = new Transform({
+  position: new Vector3(70,0,50),
+  rotation: new Quaternion( 0, 0.9238795, 0, -0.3826834), 
+  scale: new Vector3(2, 2, 2)
+})
+tow.addComponentOrReplace(transform100)
+const sftgltf = new GLTFShape("SFLogo/SFTowerV1.glb")
+sftgltf.withCollisions = true
+sftgltf.isPointerBlocker = true
+sftgltf.visible = true
+tow.addComponentOrReplace(sftgltf)
+/********************************************************************************************************************************************/
+
+/**************************************************************** TOWER 2 ***************************************************************************/
+const tow2 = new Entity('tow2')
+engine.addEntity(tow2)
+tow2.setParent(_scene)
+const transform101 = new Transform({
+  position: new Vector3(65,0,30), 
+  rotation: new Quaternion( 0, 0.9238795, 0, -0.3826834), 
+  scale: new Vector3(2, 2, 2)
+})
+tow2.addComponentOrReplace(transform101)
+const sft2gltf = new GLTFShape("SFLogo/SFTowerV8.glb") 
+sft2gltf.withCollisions = true
+sft2gltf.isPointerBlocker = true 
+sft2gltf.visible = true
+tow2.addComponentOrReplace(sft2gltf)
+/********************************************************************************************************************************************/
+
 
 const cyberpunkDoor = new Entity('cyberpunkDoor')
 engine.addEntity(cyberpunkDoor)
