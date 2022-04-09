@@ -345,7 +345,7 @@ const transform31 = new Transform({
   scale: new Vector3(1, 1, 1)
 })
 entity30.addComponentOrReplace(transform31)
-
+/*
 const houseMGreen = new Entity('houseMGreen')
 engine.addEntity(houseMGreen)
 houseMGreen.setParent(_scene)
@@ -371,7 +371,7 @@ const transform33 = new Transform({
 })
 galleryInfoGreen.addComponentOrReplace(transform33)
 
-/*******************************************************************LOGO************************************************************************/
+/*******************************************************************LOGO************************************************************************
 const logo = new Entity('logo')
 engine.addEntity(logo)
 logo.setParent(_scene)
@@ -410,12 +410,13 @@ const tow2 = new Entity('tow2')
 engine.addEntity(tow2)
 tow2.setParent(_scene)
 const transform101 = new Transform({
-  position: new Vector3(65,0,30), 
-  rotation: new Quaternion( 0, 0.9238795, 0, -0.3826834), 
-  scale: new Vector3(2, 2, 2)
+  position: new Vector3(60,0,60), 
+  //rotation: new Quaternion( 0, 0.9238795, 0, -0.3826834), 
+  rotation: Quaternion.Euler(0,135,0),
+  scale: new Vector3(3, 3, 3)
 })
 tow2.addComponentOrReplace(transform101)
-const sft2gltf = new GLTFShape("SFLogo/NewSFT_v1.glb") 
+const sft2gltf = new GLTFShape("SFLogo/NewSFT_v2.glb") 
 sft2gltf.withCollisions = true
 sft2gltf.isPointerBlocker = true 
 sft2gltf.visible = true
