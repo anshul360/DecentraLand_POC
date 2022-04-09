@@ -415,7 +415,7 @@ const transform101 = new Transform({
   scale: new Vector3(2, 2, 2)
 })
 tow2.addComponentOrReplace(transform101)
-const sft2gltf = new GLTFShape("SFLogo/SFTowerV8.glb") 
+const sft2gltf = new GLTFShape("SFLogo/NewSFT_v1.glb") 
 sft2gltf.withCollisions = true
 sft2gltf.isPointerBlocker = true 
 sft2gltf.visible = true
