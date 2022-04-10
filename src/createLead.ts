@@ -1,7 +1,4 @@
-import { galleryInfoGreen, channelId, channelBus, script1 } from "./game"
-//import Script1 from "../feea5fb9-6ee8-479e-8755-0eed817a2931/src/item"
-import { createChannel } from '../node_modules/decentraland-builder-scripts/channel'
-
+import { userId, userName } from "./userData"
 export function createLead() {
     executeTask(async () => {
         try {
@@ -31,13 +28,13 @@ export function createLead() {
                         "Authorization": "Bearer "+accessToken,  
                     },
                     method: "POST",
-                    body: '{"LastName":"From DecentraLand","FirstName":"'+firstName+'","LeadSource":"Decentra Land","Company":"Salesforce"}', 
+                    body: '{"LastName":"'+userId+'","FirstName":"'+userName+'","LeadSource":"Decentra Land","Company":"Salesforce"}', 
                 }) 
                 json = await lcres.json()
                 log(json)
                 
-                script1.init()
-                script1.spawn(galleryInfoGreen, {"text":"Salesforce Tower \n Lead Created: "+json.id,"fontSize":7.5,"font":"SF","color":"#000000"}, createChannel(channelId, galleryInfoGreen, channelBus))
+                //script1.init()
+                //script1.spawn(galleryInfoGreen, {"text":"Salesforce Tower \n Lead Created: "+json.id,"fontSize":7.5,"font":"SF","color":"#000000"}, createChannel(channelId, galleryInfoGreen, channelBus))
             }
         } catch {
           log("failed to reach URL")

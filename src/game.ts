@@ -1,7 +1,10 @@
-import { createChannel } from '../node_modules/decentraland-builder-scripts/channel'
+//import { createChannel } from '../node_modules/decentraland-builder-scripts/channel'
 import { createInventory } from '../node_modules/decentraland-builder-scripts/inventory'
-import Script1 from "../feea5fb9-6ee8-479e-8755-0eed817a2931/src/item"
-import Script2 from "../7cd4d0bc-54d4-4f64-8ab2-6f18f41f03a3/src/item"
+//import Script1 from "../feea5fb9-6ee8-479e-8755-0eed817a2931/src/item"
+//import Script2 from "../7cd4d0bc-54d4-4f64-8ab2-6f18f41f03a3/src/item"
+import { screen, vidPlay, vidPause } from "./sfMarketingVedio"
+import { signText, extLink } from './visitLink'
+import { logUserData } from './userData'
 
 const _scene = new Entity('_scene')
 engine.addEntity(_scene)
@@ -15,24 +18,24 @@ _scene.addComponentOrReplace(transform)
 const entity = new Entity('entity')
 engine.addEntity(entity)
 entity.setParent(_scene)
-const gltfShape = new GLTFShape("3bd7d322-f897-444e-99f1-e4e82fb2c035/FloorBaseConcrete_01/FloorBaseConcrete_01.glb")
+const gltfShape = new GLTFShape("models/baseScene.glb")
 gltfShape.withCollisions = true
 gltfShape.isPointerBlocker = true
 gltfShape.visible = true
 entity.addComponentOrReplace(gltfShape)
 const transform2 = new Transform({
-  position: new Vector3(8, 0, 8),
+  position: new Vector3(0, 0, 0),
   rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1, 1, 1)
+  scale: new Vector3(5, 1, 5)
 }) 
 entity.addComponentOrReplace(transform2)
-
+/*
 const entity2 = new Entity('entity2')
 engine.addEntity(entity2)
 entity2.setParent(_scene)
 entity2.addComponentOrReplace(gltfShape)
 const transform3 = new Transform({
-  position: new Vector3(24, 0, 8),
+  position: new Vector3(16, 0, 0),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(1, 1, 1)
 })
@@ -416,12 +419,12 @@ const transform101 = new Transform({
   scale: new Vector3(3, 3, 3)
 })
 tow2.addComponentOrReplace(transform101)
-const sft2gltf = new GLTFShape("SFLogo/NewSFT_v2.glb") 
+const sft2gltf = new GLTFShape("SFLogo/NewSFT_v9.glb") 
 sft2gltf.withCollisions = true
 sft2gltf.isPointerBlocker = true 
 sft2gltf.visible = true
 tow2.addComponentOrReplace(sft2gltf)
-/********************************************************************************************************************************************/
+/********************************************************************************************************************************************
 
 
 const cyberpunkDoor = new Entity('cyberpunkDoor')
@@ -432,16 +435,18 @@ const transform34 = new Transform({
   rotation: new Quaternion(-2.065802735850327e-14, 0.9238796234130859, -1.1013502643208994e-7, 0.38268333673477173),
   scale: new Vector3(1.0000054836273193, 0.75, 1.0000054836273193)
 })
-cyberpunkDoor.addComponentOrReplace(transform34)
+cyberpunkDoor.addComponentOrReplace(transform34)*/
 
 export const channelId = Math.random().toString(16).slice(2)
 export const channelBus = new MessageBus()
 const inventory = createInventory(UICanvas, UIContainerStack, UIImage)
 const options = { inventory }
 
-export const script1 = new Script1()
+/*export const script1 = new Script1()
 const script2 = new Script2()
 script1.init(options)
 script2.init(options)
 script1.spawn(galleryInfoGreen, {"text":"Salesforce Tower","fontSize":7.5,"font":"SF","color":"#000000"}, createChannel(channelId, galleryInfoGreen, channelBus))
-script2.spawn(cyberpunkDoor, {"onClickText":"Open/Close","onClick":[{"entityName":"cyberpunkDoor","actionId":"toggle","values":{}}],"onOpen":[{"entityName":"cyberpunkDoor","actionId":"open","values":{}}],"onClose":[{"entityName":"cyberpunkDoor","actionId":"close","values":{}}]}, createChannel(channelId, cyberpunkDoor, channelBus))
+script2.spawn(cyberpunkDoor, {"onClickText":"Open/Close","onClick":[{"entityName":"cyberpunkDoor","actionId":"toggle","values":{}}],"onOpen":[{"entityName":"cyberpunkDoor","actionId":"open","values":{}}],"onClose":[{"entityName":"cyberpunkDoor","actionId":"close","values":{}}]}, createChannel(channelId, cyberpunkDoor, channelBus))*/
+
+//logUserData()

@@ -11,9 +11,14 @@
     "ecs:install-next": "npm install --save-dev decentraland-ecs@next"
   },
   "devDependencies": {
-    "decentraland-ecs": "^6.10.0"
+    "decentraland-ecs": "^6.10.0",
+    "@dcl/eslint-config": "^1.0.1"
   },
   "dependencies": {
-    "decentraland-builder-scripts": "latest"
-  }
+    "decentraland-builder-scripts": "latest",
+    "@dcl/npc-scene-utils":"latest"
+  },
+  "bundleDependencies": [
+    "@dcl/npc-scene-utils"
+  ]
 }
