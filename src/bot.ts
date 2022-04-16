@@ -1,4 +1,5 @@
 import { NPC, NPCDelay } from "@dcl/npc-scene-utils";
+import { AliceDialog } from "./botDialog";
 
 /*const baseScene = new Entity()
 baseScene.addComponent(new GLTFShape("models/baseScene.glb"))
@@ -31,7 +32,7 @@ export const alice = new NPC(
     //alice.getComponent(AudioSource).playOnce()
 
     // dialog UI
-    //alice.talk(AliceDialog)
+    alice.talk(AliceDialog)
   },
   {
     faceUser: true,
