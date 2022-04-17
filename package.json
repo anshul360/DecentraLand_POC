@@ -18,7 +18,7 @@
     "@dcl/npc-scene-utils": "latest",
     "decentraland-builder-scripts": "latest"
   },
-  "bundleDependencies": [
+  "bundledDependencies": [
     "@dcl/npc-scene-utils"
   ]
 }

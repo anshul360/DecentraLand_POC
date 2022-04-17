@@ -2,9 +2,9 @@
 import { createInventory } from '../node_modules/decentraland-builder-scripts/inventory'
 //import Script1 from "../feea5fb9-6ee8-479e-8755-0eed817a2931/src/item"
 //import Script2 from "../7cd4d0bc-54d4-4f64-8ab2-6f18f41f03a3/src/item"
-import { screen, vidPlay, vidPause } from "./sfMarketingVedio"
-import { signText, extLink } from './visitLink'
-import { logUserData } from './userData'
+//import { screen, vidPlay, vidPause } from "./sfMarketingVedio"
+//import { signText, extLink } from './visitLink'
+//import { logUserData } from './userData'
 
 const _scene = new Entity('_scene')
 engine.addEntity(_scene)
@@ -435,7 +435,7 @@ const transform34 = new Transform({
   rotation: new Quaternion(-2.065802735850327e-14, 0.9238796234130859, -1.1013502643208994e-7, 0.38268333673477173),
   scale: new Vector3(1.0000054836273193, 0.75, 1.0000054836273193)
 })
-cyberpunkDoor.addComponentOrReplace(transform34)*/
+cyberpunkDoor.addComponentOrReplace(transform34)
 
 export const channelId = Math.random().toString(16).slice(2)
 export const channelBus = new MessageBus()

@@ -1,14 +1,6 @@
 import { NPC, NPCDelay } from "@dcl/npc-scene-utils";
 import { AliceDialog } from "./botDialog";
 
-/*const baseScene = new Entity()
-baseScene.addComponent(new GLTFShape("models/baseScene.glb"))
-baseScene.addComponent(new Transform({
-    position: new Vector3(30, 0, 30),
-    scale: new Vector3(3, 1, 3)
-}))
-engine.addEntity(baseScene)
-*/
 export const alice = new NPC(
   {
     position: new Vector3(61.5, 2, 62),
@@ -26,10 +18,6 @@ export const alice = new NPC(
       })
     );
     engine.addEntity(dummyent);
-
-    // sound
-    //alice.addComponentOrReplace(new AudioSource(resources.sounds.alice))
-    //alice.getComponent(AudioSource).playOnce()
 
     // dialog UI
     alice.talk(AliceDialog)

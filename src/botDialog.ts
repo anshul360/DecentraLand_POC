@@ -1,10 +1,13 @@
 import { ButtonData, Dialog } from '@dcl/npc-scene-utils'
 import { alice } from './bot'
+import { convertLead } from './convertLead'
+import { createLead } from './createLead'
+import { createOpptyLineItems } from './createOpptyLineItems'
+import { createOrder } from './createOrder'
 import { products, visitedProducts, Product } from './listProducts'
 import { createScreen, prodVidPlay, destroyScreen } from './playProductVideo'
+import { queryPriceBookEntry } from './sfUtil'
 
-let orderId: string
-let sfBaseUrl: string
 let additionalDialog: Dialog[] = []
 
 export let AliceDialog: Dialog[] = [
@@ -18,6 +21,7 @@ export let AliceDialog: Dialog[] = [
       { label: 'Yes', goToDialog: 3, 
         triggeredActions: () => {
           additionalDialog.forEach((value, index, array) => {AliceDialog.push(value)})
+          createLead()
         }
       },
       { label: 'No', goToDialog: 2 }
@@ -41,7 +45,11 @@ export let AliceDialog: Dialog[] = [
 function buildButtonsAndDialogs() { //createScreen("");
     let buttons: ButtonData[] = []
     products.forEach((value, index, arr) => {
-        buttons.push({label: value.name, goToDialog: 4 + index})
+        buttons.push({label: value.name, goToDialog: 4 + index, triggeredActions: async () => {
+          await convertLead()
+          if(value.priceBookEntryId === "")
+            await queryPriceBookEntry(value.name)
+        }})
         additionalDialog.push({
           text: value.detail,
           isQuestion: true,
@@ -60,7 +68,10 @@ function buildButtonsAndDialogs() { //createScreen("");
       isQuestion: true,
       buttons: [
         {label: "Yes", goToDialog: 3, triggeredActions: () => {destroyScreen()}},
-        {label: "No", goToDialog: 4 + products.length + 1, triggeredActions: () => {destroyScreen()}}
+        {label: "No", goToDialog: 4 + products.length + 1, triggeredActions: async () => {
+          destroyScreen()
+          await createOpptyLineItems()
+        }}
       ]
     })
 
@@ -68,7 +79,7 @@ function buildButtonsAndDialogs() { //createScreen("");
       text: 'Okay, so do you want to buy the cool products you just checked out?',
       isQuestion: true,
       buttons: [
-        {label: "Yes", goToDialog: 4 + products.length + 3, triggeredActions: () => {/*call order create*/}},
+        {label: "Yes", goToDialog: 4 + products.length + 3, triggeredActions: async () => {await createOrder()}},
         {label: "No", goToDialog: 4 + products.length + 2}
       ]
     })
@@ -85,7 +96,11 @@ function buildButtonsAndDialogs() { //createScreen("");
       text: `You are Awesome! I've created the Order for you.`,
       isQuestion: true,
       buttons: [
-        {label: "Show Order", goToDialog: 4 + products.length + 2, triggeredActions: () => {openExternalURL(`${sfBaseUrl}/${orderId}`)}},
+        // {label: "Show Order", goToDialog: 4 + products.length + 2, triggeredActions: async () => {
+        //   log("================before===============")
+        //   await createOrder()
+        //   log("================after================")
+        // }},
         {label: "Thanks!", goToDialog: 4 + products.length + 2}
       ]
     })
@@ -95,5 +110,7 @@ function buildButtonsAndDialogs() { //createScreen("");
 function loadVideo(product: Product) {
   visitedProducts.push(product)
   createScreen(product.videoLink);
+  log("=========PBE ID======================>")
+  log(product.priceBookEntryId)
   prodVidPlay()
 }
