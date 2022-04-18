@@ -1,18 +1,22 @@
+//consumer key
+export const consumerKey: string = ""
+//consumer secret
+export const consumerSecret: string = ""
+//username
+export const username: string = ""
+//password
+export const password: string = ""
 
 export const proxyUrl: string = "https://agile-garden-07512.herokuapp.com/"
 export const sfBaseUrl: string = "https://login.salesforce.com"
 export const sfOauthEndpoint: string = `${sfBaseUrl}/services/oauth2/token?grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=`
+export const sfOauthUPEndpoint: string = `${sfBaseUrl}/services/oauth2/token?grant_type=password&username=${username}&password=${password}&client_id=${consumerKey}&client_secret=${consumerSecret}`
 export const leadCreatePath: string = "/services/data/v54.0/sobjects/Lead/"
 export const leadConvertPath: string = "/services/apexrest/ConvertLead/"
 export const opptyLineItemCreateCompositePath: string = "/services/data/v54.0/composite/tree/OpportunityLineItem/"
 export const orderCreatePath: string = "/services/apexrest/CreateOrder/"
 export const queryPath: string = "/services/data/v54.0/query/?q="
 export const ContentTypeheaderValueJson: string = "application/json"
-
-//consumer key
-export const consumerKey: string = "3MVG9wt4IL4O5wvIu8Hd5_nYJATUhRYKkHCuyOz0dj4PfVKmqXqvikZGW0dyIc3QPnwDyjxnT0wziyOtMjcAC"
-//username
-export const username: string = "gottrappedinthematrix@gmail.com.dcl"
 
 export let sfInstanceUrl: string = ""
 export let accessToken: string = ""
